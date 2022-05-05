@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css"
+      integrity="sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="container">
+    <header class="header">
+        <h1 class="header-title">Tic Tac Toe</h1>
+       
+    </header>
+    <main class="main">
+        <section class="gameSection"> 
+            <article>
+                <div class="options">
+                    <input type="text" class="input" placeholder="Your name...">
+                    <select name="dificulty" id="dificulty" class="input">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                        <option value="imposible">Imposible</option>
+                    </select>
+                </div>
+            </article>
+            <article class="gamePad">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </article>
+            <article>
+                <div class="actionButtons">
+                    <button class="btn clicked">X</button>
+                    <button class="btn">O</button>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+      <span class="label-copy">&copy; Leandro Fernandez</span>
+      <a
+        href="https://github.com/LeandroAgustinFernandez/Tic-Tac-Toe-Game-TOP"
+        target="_blank"
+        class="github"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>

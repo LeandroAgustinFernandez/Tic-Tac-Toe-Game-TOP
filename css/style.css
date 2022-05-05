@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header,.footer,.main{
+    display: flex;
+}
+.header{
+    padding: 20px 0;
+    justify-content: space-evenly;
+    box-shadow: 0px 1px 10px rgb(75, 73, 73);
+    background-color: rgb(228, 231, 235);
+    color: rgb(82, 75, 75);
+    z-index: 1;
+}
+
+.main{
+    padding: 20px 0;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 239, 241);
+}
+.gameSection{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 100px;
+    row-gap: 10px;
+}
+.gamePad{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(100px,1fr));
+    grid-template-rows: repeat(3,minmax(100px,1fr));
+    gap: 3px;
+}
+.input{
+    border-radius: 15px;
+    padding: 10px 10px;
+}
+.cell:not(:nth-child(7),:nth-child(8),:nth-child(9)){
+    border-bottom: 1px solid #022601;
+}
+.cell:not(:nth-child(3),:nth-child(6),:nth-child(9)){
+    border-right: 1px solid #022601;
+}
+.btn{
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+}
+.actionButtons{
+    display: flex;
+    justify-content: space-around;
+}
+.options,.actionButtons,.gamePad{
+    padding: 20px;
+    box-shadow: 0px 0.5px 7px rgb(75, 73, 73);
+    border-radius: 5px;
+   
+}
+.footer{
+    padding: 0 20px;
+    min-height: 50px;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    font-size: 1.3rem;
+    box-shadow: 0px 1px 10px rgb(75, 73, 73);
+    background-color: rgb(228, 231, 235);
+    color: rgb(82, 75, 75);
+}
+.github{
+    color: rgb(82, 75, 75);
+    font-size: 1.5em;
+}
