@@ -19,22 +19,18 @@ const Player = (piece, name = "player") => {
 };
 
 let player1 = Player(getActivePiece());
-console.log(player1.getPlayerPiece());
-let player2 = Player((getActivePiece() == 'X')? 'O' : 'X');
+let player2 = Player(getActivePiece() == "X" ? "O" : "X");
 
 const pieceBtns = document.querySelectorAll(".btn");
 const cellsPad = document.querySelectorAll(".cell");
-let currentPlayer = (player1.getPlayerPiece() == 'X') ? player1 : player2;
+let currentPlayer = player1.getPlayerPiece() == "X" ? player1 : player2;
 
 const board = [
-  ['','',''],
-  ['','',''],
-  ['','',''],
-]
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
+];
 
-let players = [player1,player2];
-
-console.log(player2.getPlayerPiece());
 function getActivePiece() {
   let piece = document.querySelector(".clicked").dataset.piece;
   return piece;
@@ -50,6 +46,7 @@ function changePiece() {
         : btn.classList.add("clicked");
     }
     player1.setPlayerPiece(getActivePiece());
+    player2.setPlayerPiece(getActivePiece() == "X" ? "O" : "X");
   }
 }
 
@@ -58,9 +55,35 @@ for (const btn of pieceBtns) {
 }
 
 function setPiece() {
+  let column = this.dataset.column;
+  let row = this.dataset.row;
+  board[row][column] = currentPlayer.getPlayerPiece();
   if (this.textContent) return;
   this.textContent = currentPlayer.getPlayerPiece();
-  nextTurn()
+  console.log(board);
+  nextTurn();
+  for (let i = 0; i < board.length; i++) {
+    if (board[i].every((element) => element == "X")) console.log("gano X");
+    if (board[i].every((element) => element == "O")) console.log("gano O");
+  }
+  for (let i = 0; i < board.length; i++) {
+    let column = [];
+    for (let j = 0; j < board.length; j++) {
+      column.push(board[j][i]);
+    }
+    if (column.every((element) => element == "X")) console.log("gano X");
+    if (column.every((element) => element == "O")) console.log("gano O");
+  }
+  let diagonalTB = [board[0][0],board[1][1],board[2][2]];
+  let diagonalBT = [board[2][0],board[1][1],board[0][2]];
+  if (diagonalTB.every(element => element == 'X') || diagonalBT.every(element => element == 'X')) {
+    console.log("gano X");
+  }
+  if (diagonalTB.every(element => element == 'O') || diagonalBT.every(element => element == 'O')) {
+    console.log("gano O");
+  }
+  
+  
 }
 
 for (const cell of cellsPad) {
@@ -68,6 +91,5 @@ for (const cell of cellsPad) {
 }
 
 function nextTurn() {
-   currentPlayer = (currentPlayer == player1)? player2 : player1;
+  currentPlayer = currentPlayer == player1 ? player2 : player1;
 }
-
