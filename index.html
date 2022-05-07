@@ -17,13 +17,12 @@
   <body class="container">
     <header class="header">
         <h1 class="header-title">Tic Tac Toe</h1>
-       
     </header>
     <main class="main">
         <section class="gameSection"> 
             <article>
                 <div class="options">
-                    <input type="text" class="input" placeholder="Your name...">
+                    <!-- <input type="text" class="input" placeholder="Your name..."> -->
                     <select name="dificulty" id="dificulty" class="input">
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
@@ -33,20 +32,20 @@
                 </div>
             </article>
             <article class="gamePad">
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
+                <div class="cell" data-position="1"></div>
+                <div class="cell" data-position="2"></div>
+                <div class="cell" data-position="3"></div>
+                <div class="cell" data-position="4"></div>
+                <div class="cell" data-position="5"></div>
+                <div class="cell" data-position="6"></div>
+                <div class="cell" data-position="7"></div>
+                <div class="cell" data-position="8"></div>
+                <div class="cell" data-position="9"></div>
             </article>
             <article>
                 <div class="actionButtons">
-                    <button class="btn clicked">X</button>
-                    <button class="btn">O</button>
+                    <button class="btn clicked" data-piece="X">X</button>
+                    <button class="btn" data-piece="O">O</button>
                 </div>
             </article>
         </section>
