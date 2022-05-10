@@ -77,6 +77,19 @@
   font-size: 2rem;
   vertical-align: center;
 }
+.buttonResult{
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  vertical-align: center;
+  margin: .5rem 0;
+  transition: background-color .5s,color .5s;
+}
+.buttonResult:hover{
+  background-color: rgb(82, 75, 75);
+  color:whitesmoke;
+}
 .clicked {
   background-color: lightcoral;
   color: white;
@@ -89,10 +102,9 @@
 }
 .options,
 .actionButtons,
-.gamePad {
+.gamePad{
   padding: 20px;
   box-shadow: 0px 0.5px 3px 1px rgb(75, 73, 73);
-
   border-radius: 5px;
 }
 .footer {
@@ -109,4 +121,14 @@
 .github {
   color: rgb(82, 75, 75);
   font-size: 1.5em;
+}
+.result{
+  display: none;
+  padding-top: 1.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.disabledPad{
+  pointer-events: none;
+  opacity: .5;
 }
