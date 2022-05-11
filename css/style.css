@@ -45,18 +45,17 @@
   gap: 3px;
 }
 .input {
+  display: block;
   border-radius: 10px;
-  padding: 10px 10px;
-  font-size: 1rem;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  margin-left: auto;
 }
 .input,
 .btn {
   background-color: #fff;
   box-shadow: inset 2px 2px 3px rgb(173, 171, 171);
   border: none;
-}
-.input:first-child {
-  margin-right: 1rem;
 }
 .cell{
     display: flex;

@@ -21,6 +21,7 @@ const gamePlay = (function () {
   let player1 = Player(getActivePiece(), "Player1");
   let player2 = Player(getActivePiece() == "X" ? "O" : "X", "Player2");
   const pieceBtns = document.querySelectorAll(".btn");
+  const actionButtons = document.querySelector(".actionButtons");
   const cellsPad = document.querySelectorAll(".cell");
   const result = document.querySelector(".result");
   const gamepad = document.querySelector(".gamePad");
@@ -39,6 +40,12 @@ const gamePlay = (function () {
     getPercenge(e);
     resetStatusPad();
   });
+
+  window.addEventListener('load',()=>{
+    for (const child of dificulty) {
+        child.style['padding'] = '10px';
+    }
+  })
 
   function getPercenge(e) {
     let selection = e.target.value;
@@ -142,7 +149,7 @@ const gamePlay = (function () {
     let randomValue = Math.floor(Math.random() * 100);
     if (randomValue <= percentage) {
       let bestScore = -100;
-      let move = {i:0,j:0};
+      let move = { i: 0, j: 0 };
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
           if (board[i][j] == "") {
@@ -151,7 +158,7 @@ const gamePlay = (function () {
             board[i][j] = "";
             if (score > bestScore) {
               bestScore = score;
-              move = { i:i, j:j };
+              move = { i: i, j: j };
               console.log(move);
             }
           }
@@ -171,8 +178,10 @@ const gamePlay = (function () {
   function minimax(board, isMaximizing) {
     let result = checkGameStatus();
     if (result != undefined) {
-      return (player1.getPlayerPiece() == 'X') ? scoresX[result] : scoresY[result];
-    };
+      return player1.getPlayerPiece() == "X"
+        ? scoresX[result]
+        : scoresY[result];
+    }
     if (isMaximizing) {
       let bestScore = -100;
       for (let i = 0; i < 3; i++) {
@@ -214,12 +223,14 @@ const gamePlay = (function () {
     result.appendChild(button);
     result.style.display = "block";
     gamepad.classList.add("disabledPad");
+    actionButtons.classList.add("disabledPad");
     gameEnd = true;
     return gameEnd;
   }
 
   function resetGame() {
     gamepad.classList.remove("disabledPad");
+    actionButtons.classList.remove("disabledPad");
     result.innerHTML = "";
     result.style.display = "none";
     cleanBoard();
@@ -237,7 +248,7 @@ const gamePlay = (function () {
 
   function checkGameStatus() {
     let winner = undefined;
-    
+
     checkRows() != undefined ? (winner = checkRows()) : null;
     checkColumns() != undefined ? (winner = checkColumns()) : null;
     checkDiagonals() != undefined ? (winner = checkDiagonals()) : null;
